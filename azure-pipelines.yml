@@ -1,13 +1,10 @@
-pool:
-  name: Self-Hosted
-
 trigger:
   branches:
     include:
       - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: Self-Hosted
 
 variables:
   ACR_NAME: 'msregistry123'
