@@ -1,0 +1,23 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  ACR_NAME: 'msregistry123'
+  IMAGE_NAME: 'my-python-chatbot'
+  RESOURCE_GROUP: 'ms-rgroup'
+  AKS_CLUSTER_NAME: 'ms-akscluster'
+
+steps:
+- task: AzureCLI@2
+  displayName: 'Build and Push Docker Image in ACR'
+  inputs:
+    azureSubscription: ''
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az acr build --registry $(ACR_NAME) --image $(IMAGE_NAME):latest .
