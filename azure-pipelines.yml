@@ -4,7 +4,7 @@ trigger:
       - main
 
 pool:
-  name: Self-Hosted
+  name: 'Self-hosted'
 
 variables:
   ACR_NAME: 'msregistry123'
