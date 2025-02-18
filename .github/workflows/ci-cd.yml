@@ -19,8 +19,8 @@ jobs:
 
       - name: Login to ACR using Access Token
         run: |
-          az acr login --name ${{ secrets.ACR_NAME }} --expose-token --output none
-
+          az acr login --name ${{ secrets.ACR_NAME }}
+          
       - name: Build and Push Docker Image
         run: |
           docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/chatbot:latest .
