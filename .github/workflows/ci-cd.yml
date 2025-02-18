@@ -19,8 +19,7 @@ jobs:
 
       - name: Login to ACR using Access Token
         run: |
-          echo ${{ secrets.ACR_ACCESS_TOKEN }} | az acr login --name ${{ secrets.ACR_NAME }} --expose-token
-
+          az acr login --name ${{ secrets.ACR_NAME }} --expose-token --output none
 
       - name: Build and Push Docker Image
         run: |
